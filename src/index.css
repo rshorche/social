@@ -16,6 +16,59 @@
 
 @theme {
   --font-vazir: "Vazirmatn", system-ui;
+
+  --color-main-bg: var(--bg-default);
+  --color-main-surface: var(--bg-surface);
+  --color-main-border: var(--border-color);
+
+  --color-main-text: var(--text-main);
+  --color-main-muted: var(--text-muted);
+
+  --color-brand-primary: var(--primary);
+  --color-brand-secondary: var(--secondary);
+
+  --color-action-heart: var(--heart);
+  --color-action-comment: var(--comment);
+  --color-action-share: var(--share);
+  --color-action-save: var(--save);
+
+  --color-status-error: #ef4444;
+  --color-status-success: #10b981;
+  --color-status-warning: #f59e0b;
+}
+
+:root {
+  --bg-default: #fafafa;
+  --bg-surface: #ffffff;
+  --border-color: #dbdbdb;
+
+  --text-main: #262626;
+  --text-muted: #8e8e8e;
+
+  --primary: #0095f6;
+  --secondary: #eef6fd;
+
+  --heart: #ed4956;
+  --comment: #262626;
+  --share: #12b886;
+  --save: #ffd43b;
+}
+
+.dark {
+  --bg-default: #000000;
+  --bg-surface: #121212;
+  --border-color: #262626;
+
+  --text-main: #f5f5f5;
+  --text-muted: #a8a8a8;
+
+  --primary: #0095f6;
+  --secondary: #1a1a1a;
+
+  --heart: #ff3040;
+  --comment: #f5f5f5;
+  --share: #2ecc71;
+  --save: #f1c40f;
 }
 
 body {
@@ -23,4 +76,7 @@ body {
   font-family: var(--font-vazir);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-default);
+  color: var(--text-main);
+  transition: background-color 0.3s ease;
 }

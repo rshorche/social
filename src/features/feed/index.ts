@@ -1,1 +1,1 @@
-export { Feed } from "./Feed";
+export { FeedPage } from "./components/FeedPage";

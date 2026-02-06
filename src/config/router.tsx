@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router";
-import { Feed } from "@/features/feed";
+import { FeedPage } from "@/features/feed";
 import AppLayout from "@/layout/AppLayout";
 
 export const router = createBrowserRouter([
@@ -9,7 +9,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Feed />,
+        element: <FeedPage />,
       },
       {
         path: "/*",
