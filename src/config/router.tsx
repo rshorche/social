@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import { FeedPage } from "@/features/feed";
 import AppLayout from "@/layout/AppLayout";
+import { SearchPage } from "@/features/Search/components/SearchPage";
 
 export const router = createBrowserRouter([
   {
@@ -10,6 +11,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <FeedPage />,
+      },
+      {
+        path: "/search",
+        element: <SearchPage />,
       },
       {
         path: "/*",
