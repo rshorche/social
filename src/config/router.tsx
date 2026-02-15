@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router";
 import { FeedPage } from "@/features/feed";
 import AppLayout from "@/layout/AppLayout";
-import { SearchPage } from "@/features/Search/components/SearchPage";
+import { SearchPage } from "@/features/Search";
+import { ProfilePage } from "@/features/profile";
 
 export const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ export const router = createBrowserRouter([
       {
         path: "/search",
         element: <SearchPage />,
+      },
+      {
+        path: "/profile",
+        element: <ProfilePage />,
       },
       {
         path: "/*",
