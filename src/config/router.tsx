@@ -3,6 +3,7 @@ import { FeedPage } from "@/features/feed";
 import AppLayout from "@/layout/AppLayout";
 import { SearchPage } from "@/features/Search";
 import { ProfilePage } from "@/features/profile";
+import { CreatePost } from "@/features/post";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
       {
         path: "/profile",
         element: <ProfilePage />,
+      },
+      {
+        path: "/create",
+        element: <CreatePost />,
       },
       {
         path: "/*",

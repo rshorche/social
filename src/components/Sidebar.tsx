@@ -2,7 +2,6 @@ import {
   Home,
   Search,
   PlusSquare,
-  Heart,
   User,
   Moon,
   Sun,
@@ -17,7 +16,6 @@ const menuItems = [
   { icon: Home, label: "خانه", to: "/" },
   { icon: Search, label: "جستجو", to: "/search" },
   { icon: PlusSquare, label: "ایجاد", to: "/create" },
-  { icon: Heart, label: "اعلان‌ها", to: "/notifications" },
   { icon: User, label: "پروفایل", to: "/profile" },
 ];
 
