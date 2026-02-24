@@ -11,6 +11,7 @@ import {
 import { NavLink } from "react-router";
 import { cn } from "@/lib/cn";
 import { useState } from "react";
+import { useThemeStore } from "@/store/useThemeStore";
 
 const menuItems = [
   { icon: Home, label: "خانه", to: "/" },
@@ -20,9 +21,10 @@ const menuItems = [
 ];
 
 export function Sidebar() {
-  const [dark, setDark] = useState(false);
   const [open, setOpen] = useState(false);
   const [lang, setLang] = useState<"fa" | "en">("fa");
+  const isDark = useThemeStore((state) => state.isDark);
+  const toggleTheme = useThemeStore((state) => state.toggleTheme);
 
   return (
     <>
@@ -126,7 +128,7 @@ export function Sidebar() {
           </button>
 
           <button
-            onClick={() => setDark((v) => !v)}
+            onClick={toggleTheme}
             className={cn(
               "absolute w-10 h-10 rounded-full bg-main-surface border border-main-border",
               "flex items-center justify-center shadow-lg",
@@ -136,7 +138,7 @@ export function Sidebar() {
                 : "top-0 opacity-0 scale-0 pointer-events-none",
             )}
           >
-            {dark ? <Sun size={18} /> : <Moon size={18} />}
+            {isDark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
 
           <button

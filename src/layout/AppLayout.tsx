@@ -1,7 +1,18 @@
 import { Sidebar } from "@/components";
+import { useThemeStore } from "@/store/useThemeStore";
+import { useEffect } from "react";
 import { Outlet } from "react-router";
 
 function AppLayout() {
+  const isDark = useThemeStore((state) => state.isDark);
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [isDark]);
   return (
     <div className="bg-main min-h-screen">
       <Sidebar />
