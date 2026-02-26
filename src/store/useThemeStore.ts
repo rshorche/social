@@ -9,15 +9,8 @@ interface ThemeState {
 export const useThemeStore = create<ThemeState>()(
   persist(
     (set) => ({
-      isDark: localStorage.getItem("theme") === "dark",
-
-      toggleTheme: () =>
-        set((state) => {
-          const nextMode = !state.isDark;
-          document.documentElement.classList.toggle("dark", nextMode);
-
-          return { isDark: nextMode };
-        }),
+      isDark: false,
+      toggleTheme: () => set((state) => ({ isDark: !state.isDark })),
     }),
     { name: "theme" },
   ),

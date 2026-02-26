@@ -12,20 +12,24 @@ import { NavLink } from "react-router";
 import { cn } from "@/lib/cn";
 import { useState } from "react";
 import { useThemeStore } from "@/store/useThemeStore";
-
-const menuItems = [
-  { icon: Home, label: "خانه", to: "/" },
-  { icon: Search, label: "جستجو", to: "/search" },
-  { icon: PlusSquare, label: "ایجاد", to: "/create" },
-  { icon: User, label: "پروفایل", to: "/profile" },
-];
+import { useLanguageStore } from "@/store/useLanguageStore";
+import { translations } from "@/utils/languages";
 
 export function Sidebar() {
   const [open, setOpen] = useState(false);
-  const [lang, setLang] = useState<"fa" | "en">("fa");
   const isDark = useThemeStore((state) => state.isDark);
   const toggleTheme = useThemeStore((state) => state.toggleTheme);
+  const language = useLanguageStore((state) => state.language);
+  const setLanguage = useLanguageStore((state) => state.setLanguage);
 
+  const t = translations[language];
+
+  const menuItems = [
+    { icon: Home, label: t.home, to: "/" },
+    { icon: Search, label: t.search, to: "/search" },
+    { icon: PlusSquare, label: t.create, to: "/create" },
+    { icon: User, label: t.profile, to: "/profile" },
+  ];
   return (
     <>
       <aside
@@ -142,7 +146,7 @@ export function Sidebar() {
           </button>
 
           <button
-            onClick={() => setLang((v) => (v === "fa" ? "en" : "fa"))}
+            onClick={() => setLanguage(language === "fa" ? "en" : "fa")}
             className={cn(
               "absolute w-10 h-10 rounded-full bg-main-surface border border-main-border",
               "flex items-center justify-center shadow-lg",
@@ -154,10 +158,10 @@ export function Sidebar() {
           >
             <Languages
               size={18}
-              className={lang === "en" ? "text-brand-primary" : ""}
+              className={language === "en" ? "text-brand-primary" : ""}
             />
             <span className="absolute -bottom-4 text-[10px] font-bold text-main-muted">
-              {lang.toUpperCase()}
+              {language.toUpperCase()}
             </span>
           </button>
         </div>
